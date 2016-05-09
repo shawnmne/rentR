@@ -1,10 +1,54 @@
 Rails.application.routes.draw do
+  get 'leases/index'
+
+  get 'leases/create'
+
+  get 'leases/new'
+
+  get 'leases/show'
+
+  get 'leases/update'
+
+  get 'leases/edit'
+
+  get 'leases/destroy'
+
+  get 'renters/index'
+
+  get 'renters/create'
+
+  get 'renters/new'
+
+  get 'renters/show'
+
+  get 'renters/update'
+
+  get 'renters/edit'
+
+  get 'renters/destroy'
+
+  get 'rentals/index'
+
+  get 'rentals/create'
+
+  get 'rentals/new'
+
+  get 'rentals/show'
+
+  get 'rentals/update'
+
+  get 'rentals/edit'
+
+  get 'rentals/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  resources :rentals
+  resources :renters
+  resources :leases
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

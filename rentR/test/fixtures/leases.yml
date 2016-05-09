@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  rent_amount: MyString
+  start_date: 2016-05-09
+  end_date: 2016-05-09
+
+two:
+  rent_amount: MyString
+  start_date: 2016-05-09
+  end_date: 2016-05-09
