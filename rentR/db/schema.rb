@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20160509204430) do
     t.string   "name",       null: false
     t.string   "phone"
     t.string   "email"
-    t.integer  "rental_id"
+    t.integer  "rental_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

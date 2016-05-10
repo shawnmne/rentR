@@ -4,7 +4,7 @@ class CreateRenters < ActiveRecord::Migration
       t.string :name, null: false
       t.string :phone
       t.string :email
-      t.integer :rental_id
+      t.integer :rental_id, null: false
 
       t.timestamps null: false
     end
