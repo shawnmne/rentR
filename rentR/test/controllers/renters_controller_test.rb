@@ -7,8 +7,8 @@ class RentersControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    get :create
-    assert_response :success
+   post :create, renter: {name: "Stew", rental_id: 1}
+   assert_redirected_to renters_path
   end
 
   test "should get new" do
@@ -17,23 +17,27 @@ class RentersControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    r = Renter.create(name: "Stew", rental_id: 1)
+    get :show, id: r.id
     assert_response :success
   end
 
   test "should get update" do
-    get :update
-    assert_response :success
+    r = Renter.create(name: "Stew", rental_id: 1)
+    patch :update, id: r.id, renter: {name: "Freddy"}
+    assert_redirected_to renter_path(assigns(:renter))
   end
 
   test "should get edit" do
-    get :edit
+    r = Renter.create(name: "Stew", rental_id: 1)
+    get :edit, id: r.id
     assert_response :success
   end
 
   test "should get destroy" do
-    get :destroy
-    assert_response :success
+    r = Renter.create(name: "Stew", rental_id: 1)
+    delete :destroy, id: r.id
+    assert_redirected_to renters_path
   end
 
 end
