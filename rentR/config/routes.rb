@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'users/new'
-
-  get 'users/show'
-
-  get 'users/index'
-
-  get 'users/create'
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -17,6 +11,7 @@ Rails.application.routes.draw do
   resources :rentals
   resources :renters
   resources :leases
+  resources :users, except: [:destroy, :edit, :update]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
