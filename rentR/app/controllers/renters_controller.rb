@@ -13,7 +13,7 @@ class RentersController < ApplicationController
     end
   end
 
-  def new
+  def new    
     @renter = Renter.new
   end
 
