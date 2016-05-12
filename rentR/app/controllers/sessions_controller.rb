@@ -1,4 +1,19 @@
 class SessionsController < ApplicationController
-  def login
+  def new
+  end
+
+  def create
+  	@user = login(params[:email], params[:password])
+  	if @user
+  		redirect_back_or_to users_path, notice: "Logged in successfully"
+  	else
+  		flash.now[:alert] = "Login failed"
+  		render :new
+  	end
+  end
+
+  def destroy
+  	logout
+  	redirect_to users_path
   end
 end
