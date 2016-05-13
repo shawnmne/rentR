@@ -2,8 +2,8 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   test "should get new" do
-    @user = User.create!(email: "david@poohat.com", password: "biggun", password_confirmation: "biggun")
-    login_user(user=@user, route=login_path)    
+    # @user = User.create!(email: "david@poohat.com", password: "biggun", password_confirmation: "biggun")
+    # login_user(user=@user, route=login_path)    
     get :new
     assert_response :success
   end
@@ -23,8 +23,8 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get create" do
-    @user = User.create!(email: "david@poohat.com", password: "biggun", password_confirmation: "biggun")
-    login_user(user=@user, route=login_path)
+    # @user = User.create!(email: "david@poohat.com", password: "biggun", password_confirmation: "biggun")
+    # login_user(user=@user, route=login_path)
     post :create, user: {email: "gloria@poohat.com", password: "biggun", password_confirmation: "biggun"}
     assert_redirected_to users_path
   end
