@@ -1,16 +1,18 @@
-<h1>Lease</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<h1>Lease</h1>
 
-<% if flash[:notice] %>
-  <div class="flash notice">
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
+			<p>Address: <%= @lease.rental.address %></p>
+			<p>Address2: <%= @lease.rental.apartment %></p>
+			<p>Monthly Rent: <%= @lease.rent_amount %></p>
+			<p>Start Date: <%= @lease.start_date %></p>
+			<p>End Date: <%= @lease.end_date %></p>
 
-<p>Address: <%= @lease.rental.address %></p>
-<p>Address2: <%= @lease.rental.apartment %></p>
-<p>Monthly Rent: <%= @lease.rent_amount %></p>
-<p>Start Date: <%= @lease.start_date %></p>
-<p>End Date: <%= @lease.end_date %></p>
-
-<p><%= link_to "Edit Lease", edit_lease_path(@lease) %></p>
-<p><%= link_to "Rentals", :rentals %></p>
+			<p class="btn btn-default new-lease-btn"><%= link_to "New Lease", new_lease_path, style: "color: black" %></p>
+			<p class="btn btn-danger delete-lease-btn"><%= link_to "Delete Lease", lease_path(@lease), :method=>:delete, style: "color: white" %></p>
+			</div>
+		<div class="col-xs-1"></div>
+	</div>
+</div>	

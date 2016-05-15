@@ -1,39 +1,41 @@
-<h1>Edit Renter</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<h1>Edit Renter</h1>
 
-<% if @renter.errors.any? %>
-  <ul>
-    <% @renter.errors.full_messages.each do |e| %>
-      <li><%= e %></li>
-    <% end %>
-  </ul>
-<% end %>
+			<% if @renter.errors.any? %>
+			  <ul>
+			    <% @renter.errors.full_messages.each do |e| %>
+			      <li><%= e %></li>
+			    <% end %>
+			  </ul>
+			<% end %>
 
-<% if flash[:alert] %>
-  <div class="flash alert">
-    <p><%= flash[:alert] %></p>
-  </div>
-<% end %>
+			<%= bootstrap_form_for @renter do |f| %>
+				<div>
 
-<%= form_for @renter do |f| %>
-	<div>
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-	</div>
-	<div>
-		<%= f.label :phone %>
-		<%= f.text_field :phone %>
-	</div>
-	<div>
-		<%= f.label :email %>
-		<%= f.text_field :email %>
-	</div>
-	<div>
-		<%= f.label :which_property %>
-    <%= select("renter", "rental_id", Rental.all.collect {|r| [ (r.address + " " + r.apartment), r.id ] }, {:include_blank => true}) %>
-	</div>
-	<div>
-		<%= f.submit %>
-	</div>
-<% end %>	
+					<%= f.text_field :name %>
+				</div>
+				<div>
 
-<%= link_to "Delete Renter", renter_path(@renter), :method=>:delete %>
+					<%= f.text_field :phone %>
+				</div>
+				<div>
+
+					<%= f.text_field :email %>
+				</div>
+				<div>
+					<%= f.label :Rental %>
+			    <%= select("renter", "rental_id", Rental.all.collect {|r| [ (r.address + " " + r.apartment), r.id ] }, {:include_blank => true}) %>
+				</div>
+				<div>
+					<%= f.submit %>
+				</div>
+			<% end %>	
+
+			<p class="btn btn-danger delete-renter-btn"><%= link_to "Delete Renter", renter_path(@renter), :method=>:delete, style: "color: white" %></p>
+		</div>
+		<div class="col-xs-1"></div>
+	</div>
+</div>

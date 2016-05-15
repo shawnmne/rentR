@@ -39,7 +39,7 @@ class LeasesController < ApplicationController
   def destroy
     @lease = Lease.find(params[:id])
     @lease.destroy
-    redirect_to :leases, notice: "Successfully removed lease"
+    redirect_to :rentals, notice: "Successfully removed lease"
   end
 
   private
