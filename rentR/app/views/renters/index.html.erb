@@ -1,2 +1,20 @@
-<h1>Renters#index</h1>
-<p>Find me in app/views/renters/index.html.erb</p>
+<h1>Renters</h1>
+
+
+<% if flash[:notice] %>
+  <div class="flash notice">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+
+<% if @renters.any? %>
+	<ul>
+		<% @renters.each do |r| %>
+			<li><%= link_to r.name, renter_path(r) %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<p>Sorry.  No renters here!</p>
+<% end %>
+<p><%= link_to "New Renter", new_renter_path %></p>

@@ -1,2 +1,31 @@
-<h1>Rentals#new</h1>
-<p>Find me in app/views/rentals/new.html.erb</p>
+<h1>New Rental</h1>
+
+<% if @rental.errors.any? %>
+	<div>
+	  <ul>
+	    <% @rental.errors.full_messages.each do |e| %>
+	      <li><%= e %></li>
+	    <% end %>
+  	</ul>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+<%= form_for @rental do |f| %>
+	<div>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+	</div>
+	<div>
+		<%= f.label :address2 %>
+		<%= f.text_field :apartment %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>	

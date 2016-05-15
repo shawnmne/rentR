@@ -1,2 +1,51 @@
-<h1>Rentals#edit</h1>
-<p>Find me in app/views/rentals/edit.html.erb</p>
+<h1>Edit Rental</h1>
+
+<% if @rental.errors.any? %>
+  <ul>
+    <% @rental.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+<%= form_for @rental do |f| %>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :address2 %>
+    <%= f.text_field :apartment %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %> 
+
+<div>
+	<button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#myModal">Delete Rental</button></li>
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p>If you delete this rental all associated renter and lease records will also be deleted.  Continue?</p>
+      </div>
+      <div class="modal-footer">
+        <div class="delete-yes">
+          <%= button_to "Yes", rental_path(@rental), :method=>:delete,  class:"btn btn-warning" %>
+        </div>
+        <div class="delete-cancel">
+          <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -4,9 +4,10 @@ class LeasesController < ApplicationController
   end
 
   def create
+
     @lease = Lease.new(lease_params)
     if @lease.save
-      redirect_to :leases, notice: "Successfully added"
+      redirect_to lease_path(@lease), notice: "Successfully added"
     else
       flash.now[:alert] = "Couldn't save.  Not added."
       render :new

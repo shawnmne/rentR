@@ -1,2 +1,39 @@
-<h1>Renters#new</h1>
-<p>Find me in app/views/renters/new.html.erb</p>
+<h1>New Renter</h1>
+
+<% if @renter.errors.any? %>
+	<div>
+	  <ul>
+	    <% @renter.errors.full_messages.each do |e| %>
+	      <li><%= e %></li>
+	    <% end %>
+  	</ul>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+<%= form_for @renter do |f| %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :phone %>
+		<%= f.text_field :phone %>
+	</div>
+	<div>
+		<%= f.label :email %>
+		<%= f.text_field :email %>
+	</div>
+	<div>
+		<%= f.label :which_property %>
+    <%= select("renter", "rental_id", Rental.all.collect {|r| [ (r.address + " " + r.apartment), r.id ] }, {:include_blank => true}) %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>	

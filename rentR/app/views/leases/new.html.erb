@@ -1,2 +1,39 @@
-<h1>Leases#new</h1>
-<p>Find me in app/views/leases/new.html.erb</p>
+<h1>New Lease</h1>
+
+<% if @lease.errors.any? %>
+	<div>
+	  <ul>
+	    <% @lease.errors.full_messages.each do |e| %>
+	      <li><%= e %></li>
+	    <% end %>
+  	</ul>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
+<%= form_for @lease do |f| %>
+	<div>
+		<%= f.label :rent_amount %>
+		<%= f.text_field :rent_amount %>
+	</div>
+	<div>
+		<%= f.label :start_date %>
+  	<%= f.date_select(:start_date, :order => [:month, :day, :year]) %> 
+	</div>
+	<div>
+		<%= f.label :end_date %>
+		<%= f.date_select(:end_date, :order => [:month, :day, :year]) %>
+	</div>	
+	<div>
+		<%= f.label :which_property %>
+    <%= select("lease", "rental_id", Rental.all.collect {|r| [ (r.address + " " + r.apartment), r.id ] }, {:include_blank => true}) %>
+	</div>
+	<div>
+		<%= f.submit %>
+	</div>
+<% end %>	

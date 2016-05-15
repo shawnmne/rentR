@@ -1,2 +1,56 @@
-<h1>Rentals#show</h1>
-<p>Find me in app/views/rentals/show.html.erb</p>
+<h1>Rental: <%= (@rental.address + " " + @rental.apartment) %></h1>
+
+<% if flash[:notice] %>
+  <div class="flash notice">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">See Leases</button>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Leases listed by end date</h4>
+      </div>
+      <div class="modal-body">
+      	<% @leases.each do |l| %>
+					<% if @rental.id == l.rental_id %>
+						<p><%= link_to "#{l.end_date}", lease_path(l) %></p>
+				  <% end %>
+				<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">See Renters</button>
+
+<div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Renter</h4>
+      </div>
+      <div class="modal-body">
+      	<% @renters.each do |r| %>
+					<% if @rental.id == r.rental_id %>
+						<p><%= link_to "#{r.name}", renter_path(r) %></p>
+				  <% end %>
+				<% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p><%= link_to "Edit Rental", edit_rental_path(@rental) %></p>
+<p><%= link_to "All Rentals", :rentals %></p>

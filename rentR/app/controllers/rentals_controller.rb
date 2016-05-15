@@ -19,6 +19,8 @@ class RentalsController < ApplicationController
 
   def show
     @rental = Rental.find(params[:id])
+    @leases = Lease.all
+    @renters = Renter.all 
   end
 
   def update

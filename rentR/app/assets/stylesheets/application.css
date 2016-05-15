@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+.navbar-default {color: blue;
+						background-color: cyan; }
+
+.navbar-logged-in { text-align: center; }
