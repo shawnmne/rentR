@@ -1,15 +1,17 @@
-<h1>Renter: <%= @renter.name %></h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<h1>Renter: <%= @renter.name %></h1>
 
-<% if flash[:notice] %>
-  <div class="flash notice">
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
+			<p>Address: <%= @renter.rental.address %></p>
+			<p>Address2: <%= @renter.rental.apartment %></p>
+			<p>Phone: <%= @renter.phone %></p>
+			<p>Email: <%= @renter.email %></p>
 
-<p>Address: <%= @renter.rental.address %></p>
-<p>Address2: <%= @renter.rental.apartment %></p>
-<p>Phone: <%= @renter.phone %></p>
-<p>Email: <%= @renter.email %></p>
-
-<p><%= link_to "Edit Renter", edit_renter_path(@renter) %></p>
-<p><%= link_to "All Renters", :renters %></p>
+			<p class="btn btn-default edit-renter-btn"><%= link_to "Edit Renter", edit_renter_path(@renter) %></p>
+			<p class="btn btn-default index-renter-btn"><%= link_to "All Renters", :renters %></p>
+		</div>
+		<div class="col-xs-1"></div>
+	</div>
+</div>

@@ -13,20 +13,17 @@
 			  	</ul>
 			  </div>
 			<% end %>
-			<%= form_for @renter do |f| %>
-				<div class="form-group">
-					<%= f.label :name %>
+			<%= bootstrap_form_for @renter do |f| %>
+				<div>
 					<%= f.text_field :name %>
 				</div>
-				<div class="form-group">
-					<%= f.label :phone %>
+				<div>
 					<%= f.text_field :phone %>
 				</div>
-				<div class="form-group">
-					<%= f.label :email %>
+				<div>
 					<%= f.text_field :email %>
 				</div>
-				<div class="form-group">
+				<div>
 					<%= f.label :rental  %>
 			    <%= select("renter", "rental_id", Rental.all.collect {|r| [ (r.address + " " + r.apartment), r.id ] }, {:include_blank => true}) %>
 				</div>
