@@ -1,20 +1,20 @@
-<h1>Renters</h1>
 
-
-<% if flash[:notice] %>
-  <div class="flash notice">
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
-
-
-<% if @renters.any? %>
-	<ul>
-		<% @renters.each do |r| %>
-			<li><%= link_to r.name, renter_path(r) %></li>
-		<% end %>
-	</ul>
-<% else %>
-	<p>Sorry.  No renters here!</p>
-<% end %>
-<p><%= link_to "New Renter", new_renter_path %></p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-1"></div>
+		<div class="col-xs-10">
+			<h1>Renters</h1>
+			<% if @renters.any? %>
+				<ul class="list-group rental-index">
+					<% @renters.each do |r| %>
+						<li class="list-group-item"><%= link_to r.name, renter_path(r) %></li>
+					<% end %>
+				</ul>
+			<% else %>
+				<p>Sorry.  No renters here!</p>
+			<% end %>
+			<p class="btn btn-default"><%= link_to "New Renter", new_renter_path %></p>
+		</div>
+		<div class="col-xs-1"></div>
+	</div>
+</div>

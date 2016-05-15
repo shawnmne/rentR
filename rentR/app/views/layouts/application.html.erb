@@ -50,6 +50,19 @@
     </div><!-- /.container-fluid -->
   </nav>
 
+<% if flash[:notice] %>
+  <div class="flash notice">
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+
+<% if flash[:alert] %>
+  <div class="flash alert">
+    <p><%= flash[:alert] %></p>
+  </div>
+<% end %>
+
 
 <%= yield %>
 
