@@ -1,0 +1,21 @@
+			<% if @rental.errors.any? %>
+				<div>
+				  <ul>
+				    <% @rental.errors.full_messages.each do |e| %>
+				      <li><%= e %></li>
+				    <% end %>
+			  	</ul>
+			  </div>
+			<% end %>
+
+			<%= bootstrap_form_for @rental do |f| %>
+				<div>
+					<%= f.text_field :address %>
+				</div>
+				<div>
+					<%= f.text_field :apartment %>
+				</div>				
+				<div>
+					<%= f.submit %>
+				</div>
+			<% end %>	

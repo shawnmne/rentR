@@ -3,29 +3,8 @@
 		<div class="col-xs-1"></div>
 		<div class="col-xs-10">
 			<h1>New Rental</h1>
-
-			<% if @rental.errors.any? %>
-				<div>
-				  <ul>
-				    <% @rental.errors.full_messages.each do |e| %>
-				      <li><%= e %></li>
-				    <% end %>
-			  	</ul>
-			  </div>
-			<% end %>
-
-			<%= bootstrap_form_for @rental do |f| %>
-				<div>
-					<%= f.text_field :address %>
-				</div>
-				<div>
-					<%= f.text_field :apartment %>
-				</div>
-				<div>
-					<%= f.submit %>
-				</div>
-			<% end %>	
-			</div>
+			<%= render "form" %>
+		</div>
 		<div class="col-xs-1"></div>
 	</div>
 </div>	
