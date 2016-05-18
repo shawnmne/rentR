@@ -6,6 +6,7 @@ class Rental < ActiveRecord::Base
 	has_many :leases, dependent: :destroy
 
 	has_attached_file :attachment, styles: { medium: "340x340>" }
+
 	validates_attachment :attachment, content_type: {content_type: "image/jpeg"}
 
 end

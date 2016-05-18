@@ -15,6 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 
 # Paperclip for file uploads
 gem 'paperclip'
+gem 'aws-sdk', '~>1.6'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -43,6 +44,10 @@ gem 'bootstrap_form'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  #dot-env helps to mock environment/config variables
+  gem 'dotenv-rails'
+
 end
 
 group :development do

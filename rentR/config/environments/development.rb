@@ -3,6 +3,16 @@ Rails.application.configure do
 
   #Paperclip needs to be able to access ImageMagick
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  Paperclip::Attachment.default_options[:storage] = :s3
+  Paperclip::Attachment.default_options[:s3_credentials] = {
+    :bucket => "rentr-project", 
+    :access_key_id => ENV["ACCESS_KEY_ID"],
+    :secret_access_key => ENV["SECRET_ACCESS_KEY"]
+  }
+
+
+   Paperclip::Attachment.default_options[:path] = "/:basename.:extension"
+   Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
