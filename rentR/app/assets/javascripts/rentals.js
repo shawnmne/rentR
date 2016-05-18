@@ -1,2 +1,16 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
+
+$(document).on("page:change", setUpPage);
+
+function setUpPage() {
+
+	$("#show-pic").click(function(){
+		$("#rental-pic").show();
+	});
+	$("#rental-pic").click(function(){
+		$("#rental-pic").hide();
+	});
+}
+
+

@@ -3,7 +3,12 @@
 		<div class="col-xs-1"></div>
 		<div class="col-xs-4">
 			<h1>Rental: <%= (@rental.address + " " + @rental.apartment) %></h1>
-
+			<% if @rental.image.nil? %>
+			<% else %>
+				<a href='#' class="btn btn-default show-image" id="show-pic" >Show image</a>
+			<% end %>
+			 <img class="rental-pic" id="rental-pic" src="http://placekitten.com/g/400/300">
+			<br>
 			<button type="button" class="btn btn-info btn-lg modal1-btn" data-toggle="modal" data-target="#myModal">See Leases</button>
 
 			<div id="myModal" class="modal fade" role="dialog">
