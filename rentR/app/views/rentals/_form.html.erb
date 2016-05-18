@@ -8,16 +8,16 @@
 			  </div>
 			<% end %>
 
-			<%= bootstrap_form_for @rental do |f| %>
+			<%= bootstrap_form_for @rental, html: {mulitpart: true} do |f| %>
 				<div>
 					<%= f.text_field :address %>
 				</div>
 				<div>
-					<%= f.text_field :apartment %>
+					<%= f.text_field :apartment, label: "Address2" %>
 				</div>
 				<div>
-					<%= f.text_field :image %>
-				</div>				
+					<%= f.file_field :attachment, label: "Image" %>
+				</div>							
 				<div>
 					<%= f.submit %>
 				</div>
