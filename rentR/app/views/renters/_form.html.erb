@@ -22,6 +22,10 @@
 			    <%= select("renter", "rental_id", Rental.all.collect {|r| [ (r.address + " " + r.apartment), r.id ] }, {:include_blank => true}) %>
 				</div>
 				<div>
+					<%= f.label :lease  %>
+			    <%= select("lease", "lease_id", Lease.all.collect {|l| [ l.end_date, l.id ] }) %>
+				</div>
+				<div>
 					<%= f.submit %>
 				</div>
 			<% end %>

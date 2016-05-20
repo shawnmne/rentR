@@ -5,4 +5,6 @@ class Renter < ActiveRecord::Base
 
 
 	belongs_to :rental
+	belongs_to :lease
+
 end

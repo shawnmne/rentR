@@ -6,4 +6,6 @@ class Lease < ActiveRecord::Base
 	validates :rental_id, presence:true
 
 	belongs_to :rental
+	has_many :renters
+	
 end
