@@ -23,8 +23,8 @@
 				</div>
 				<div>
 					<%= f.label :lease  %>
-			    <%= select("lease", "lease_id", Lease.all.collect {|l| [ l.end_date, l.id ] }) %>
-				</div>
+			    <%= select("renter", "lease_id", Lease.all.collect {|l| [ (l.rental.address + " " + l.rental.apartment + " " + l.end_date.to_s), l.id ] }, {:include_blank => true}) %>
+				</div>				
 				<div>
 					<%= f.submit %>
 				</div>

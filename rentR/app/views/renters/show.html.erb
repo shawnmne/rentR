@@ -8,7 +8,11 @@
 			<p>Address2: <%= @renter.rental.apartment %></p>
 			<p>Phone: <%= @renter.phone %></p>
 			<p>Email: <%= @renter.email %></p>
-
+			<% if @renter.lease.nil? %>
+				<p>Lease End Date: Not Currently Assigned to a Lease</p>
+			<% else %>
+				<p>Lease End Date: <%= @renter.lease.end_date %></p>
+			<% end %>
 			<p class="btn btn-default edit-renter-btn"><%= link_to "Edit Renter", edit_renter_path(@renter) %></p>
 			<p class="btn btn-default index-renter-btn"><%= link_to "All Renters", :renters %></p>
 		</div>
