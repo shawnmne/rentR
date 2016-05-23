@@ -8,4 +8,18 @@ class Lease < ActiveRecord::Base
 	belongs_to :rental
 	has_many :renters
 	
+# find_expiring_leasee_id checks to see if a lease object is expiring  
+#    45 days from today.  If so it returns id of the lease
+#
+# leasee_id array is returned containing any lease ids for expiring leases.
+
+
+	def find_expiring_leasee_id()
+		days = (self.end_date - Date.today).to_i
+		if days == 0
+			self.id
+		end
+	end
+
+
 end
