@@ -1,4 +1,4 @@
-ActionMailer::Base.register_interceptor(SendGrid::MailInterceptor)
+
 
 ActionMailer::Base.smtp_settings = {
   :address => 'smtp.sendgrid.net',
