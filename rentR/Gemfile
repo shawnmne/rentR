@@ -32,6 +32,8 @@ gem 'sidetiq'
 
 gem 'puma'
 
+gem 'sendgrid-rails'
+
 # Use sorcery for authentication
 gem 'sorcery' 
 
