@@ -1,8 +1,30 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
+  #Paperclip needs to be able to access ImageMagick
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  Paperclip::Attachment.default_options[:storage] = :s3
+  Paperclip::Attachment.default_options[:s3_credentials] = {
+    :bucket => "rentr-project", 
+    :access_key_id => ENV["ACCESS_KEY_ID"],
+    :secret_access_key => ENV["SECRET_ACCESS_KEY"]
+  }
 
+
+   Paperclip::Attachment.default_options[:path] = "/:basename.:extension"
+   Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
   # Code is not reloaded between requests.
   config.cache_classes = true
+
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               ENV["DOMAIN"],
+  user_name:            ENV["EMAIL_ADDRESS"],
+  password:             ENV["PASSWORD"],
+  authentication:       'plain',
+  enable_starttls_auto: true  }
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
