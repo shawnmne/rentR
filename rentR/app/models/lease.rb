@@ -18,7 +18,7 @@ class Lease < ActiveRecord::Base
 
 	def find_expiring_leasee_id()
 		days = (self.end_date - Date.today).to_i
-		if days == -1
+		if days == 0
 			self.id
 		end
 	end
