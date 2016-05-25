@@ -30,6 +30,8 @@ gem 'sidekiq'
 
 gem 'sidetiq'
 
+gem 'puma'
+
 # Use sorcery for authentication
 gem 'sorcery' 
 
