@@ -19,7 +19,7 @@ class HardWorker
     	end
     end
     if leasee.count > 0
-    	RenterMailer.lease_email(leasee).deliver_now
+    	RenterMailer.delay.lease_email(leasee)
     end
   end
 end
